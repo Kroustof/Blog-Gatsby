@@ -23,7 +23,7 @@ export default ({ data, pageContext }) => {
       <ButtonGroup>
         {next && (
           <Button type="primary" size="large">
-            <Link to={next.frontmatter.slug}>
+            <Link to={`/${next.frontmatter.slug}`}>
               <Icon type="left" />
               {next.frontmatter.title}
             </Link>
@@ -31,7 +31,7 @@ export default ({ data, pageContext }) => {
         )}
         {prev && (
           <Button type="primary" size="large">
-            <Link to={prev.frontmatter.slug}>
+            <Link to={`/${prev.frontmatter.slug}`}>
               {prev.frontmatter.title}
               <Icon type="right" />
             </Link>
