@@ -1,17 +1,43 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
+    title: `Blog Gatsby`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    author: `Didier`,
+    authorDescription: "Dév JS | React | Autodidacte. Créateur de WorldSeller et plein d'autres pprojets entrepreneurial à succès. Fondateur de BlackBear Solutions.",
+    photo: `../images/author.png`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-transformer-remark`,
+    `gatsby-plugin-netlify-cms`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `src`,
+        path: `${__dirname}/blog`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-less`,
+      options: {       
+        lessOptions: {
+          javascriptEnabled: true,
+          modifyVars: require(`./src/theme/antd`),
+        },
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-antd',
+      options: {
+        style: true
+      }
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
